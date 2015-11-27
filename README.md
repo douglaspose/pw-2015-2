@@ -7,6 +7,6 @@ Ordem de serviço (Abertura de chamado)
 UML Versao 1.0
 
 
-# Tema usado (Gentelella
+# Tema usado (Gentelella)
 
 https://github.com/kimlabs/gentelella
