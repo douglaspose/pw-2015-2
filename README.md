@@ -7,6 +7,6 @@ Ordem de serviço (Abertura de chamado)
 UML Versao 1.0
 
 
-# Tema usado (SB Admin 2)
+# Tema usado (Gentelella
 
-http://startbootstrap.com/template-overviews/sb-admin-2/
+https://github.com/kimlabs/gentelella
