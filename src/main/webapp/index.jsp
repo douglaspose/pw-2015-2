@@ -40,7 +40,7 @@
                                 <input type="password" class="form-control" placeholder="Senha" required="" />
                             </div>
                             <div>
-                                <a class="btn btn-default submit" href="index.html">Login</a>                                
+                                <a class="btn btn-default submit" href="home.jsp">Login</a>                                
                             </div>
                             <div class="clearfix"></div>
                             <div class="separator">
@@ -69,7 +69,7 @@
                                 <input type="password" class="form-control" placeholder="Senha" required="" />
                             </div>
                             <div>
-                                <a class="btn btn-default submit" href="home.jsp">Cadastrar</a>
+                                <a class="btn btn-default submit" href="index.html">Cadastrar</a>
                             </div>
                             <div class="clearfix"></div>
                             <div class="separator">
