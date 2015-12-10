@@ -64,9 +64,9 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-table"></i> Ordem de serviço <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="os-list.jsp">Listar</a>
+                                        <li><a href="listar.jsp">Listar</a>
                                         </li>
-                                        <li><a href="os-new.jsp">Cadastrar</a>
+                                        <li><a href="cadastrar.jsp">Cadastrar</a>
                                         </li>
                                     </ul>
                                 </li>
