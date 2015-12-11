@@ -20,21 +20,13 @@
               <input type="text" class="form-control" id="nome" required>
             </div>
             <div class="form-group">
-              <label for="email">E-mail</label>
-              <input type="email" class="form-control" id="email" required>
+              <label for=cpf>CPF</label>
+              <input type="text" class="form-control" id="cpf" required>
             </div>
             <div class="form-group">
-              <label for="tipo">Tipo</label>
-              <select class="form-control" id="tipo" required>
-                  <option value="A">Admin</option>
-                  <option value="N">Normal</option>
-              </select>
+              <label for="id-executante">ID Executante</label>
+                <input type="number" class="form-control" id="id-executante" required>
             </div>
-            <div class="form-group">
-              <label for="pwd">Senha</label>
-              <input type="password" class="form-control" id="pwd" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
     </div>                        
 </div>
