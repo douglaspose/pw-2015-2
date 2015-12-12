@@ -1,4 +1,5 @@
 <%@ include file="/header.jsp" %>
+<link href="_css/estilo.css" rel="stylesheet">
 
 <div class="right_col" role="main">
 
