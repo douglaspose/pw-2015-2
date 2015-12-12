@@ -12,7 +12,7 @@
                     </div>
                 </div>                
                 <div class="col-md-6 col-sm-6 col-xs-12">                                    
-                    <button type="submit" class="btn btn-sm btn-success">Novo</button>
+                    <button type="submit" class="btn btn-sm btn-success" onclick="location.href='executante-new.jsp';">Novo</button>
                 </div>
                 <div class="x_content">
 
