@@ -35,6 +35,24 @@
                                 <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10" data-parsley-id="1710"></textarea>
                             </div>
                         </div>
+                        
+                        
+                        <div class="form-group">
+                  <input class="form-control" placeholder="Matricula" name="matricula"
+                    type="text" value="${param.matricula}">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Nome" name="nome"
+                    type="text" value="${param.nome}">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Fone" name="fone"
+                    type="text" value="${param.fone}">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="CPF" name="cpf"
+                    type="text" value="${param.cpf}">
+                </div>
 
                         <div class="ln_solid"></div>
                         <div class="form-group">
