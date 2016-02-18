@@ -1,4 +1,6 @@
 <%@ include file="/header.jsp" %>
+<%@page import="bancodados.cadastro.OrdemDeServico"%>
+<%@page import="java.util.List"%>
 <link href="_css/estilo.css" rel="stylesheet">
 
 <div class="right_col" role="main">
@@ -16,52 +18,40 @@
                 <div class="x_content">
                     <br>
                     <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Executante <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control">
-                                    <option>-- Selecione --</option>
-                                    <option>Paulo da Silva</option>
-                                    <option>Marcela Souza</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descrição <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10" data-parsley-id="1710"></textarea>
-                            </div>
-                        </div>
-                        
                         
                         <div class="form-group">
-                  <input class="form-control" placeholder="Matricula" name="matricula"
-                    type="text" value="${param.matricula}">
+                  <input class="form-control" placeholder="Id" name="id"
+                    type="text" value="${param.id}">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Nome" name="nome"
-                    type="text" value="${param.nome}">
+                  <input class="form-control" placeholder="Data" name="data"
+                    type="text" value="${param.data}">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Fone" name="fone"
-                    type="text" value="${param.fone}">
+                  <input class="form-control" placeholder="Solicitante" name="solicitante"
+                    type="text" value="${param.solicitante}">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="CPF" name="cpf"
-                    type="text" value="${param.cpf}">
+                  <input class="form-control" placeholder="Executante" name="executante"
+                    type="text" value="${param.executante}">
                 </div>
-
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                                    
-                                <button type="submit" class="btn btn-success">Salvar</button>
-                            </div>
-                        </div>
+                <input type="submit" class="btn btn-sm btn-success" name="evento" value="Incluir">
+				<input type="submit" class="btn btn-sm btn-success" name="evento" value="Alterar"> 
+				<input type="submit" class="btn btn-sm btn-success" name="evento" value="Excluir">
+				<input type="button" class="btn btn-sm btn-success" onclick="location.href='?'" value="Limpar">
+                       
 
                     </form>
+                    
+                    <%
+                    //Obtendo a variÃƒÂ¡vel definida no servlet.
+            		bancodados.cadastro.OrdemDeServico ordemDeServico = (bancodados.cadastro.OrdemDeServico) request.getAttribute("ordemDeServico");
+            	
+            		%>
+                    
+                    
+                    
+                    
                 </div>
 
                 <div class="clearfix"></div>

@@ -1,4 +1,4 @@
-package bancodados.cadastroaluno;
+package bancodados.cadastro;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,45 +7,45 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Aluno {
-	private String matricula;
+public class OrdemDeServico {
+	private String id;
 
-	public String getMatricula() {
-		return matricula;
+	public String getId() {
+		return id;
 	}
 
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	private String nome;
+	private String data;
 
-	public String getNome() {
-		return nome;
+	public String getData() {
+		return data;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setData(String data) {
+		this.data = data;
 	}
 
-	private String fone;
+	private String solicitante;
 
-	public String getFone() {
-		return fone;
+	public String getSolicitante() {
+		return solicitante;
 	}
 
-	public void setFone(String fone) {
-		this.fone = fone;
+	public void setSolicitante(String solicitante) {
+		this.solicitante = solicitante;
 	}
 
-	private String cpf;
+	private String executante;
 
-	public String getCpf() {
-		return cpf;
+	public String getExecutante() {
+		return executante;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setExecutante(String executante) {
+		this.executante = executante;
 	}
 
 	public void incluir() {
@@ -54,13 +54,13 @@ public class Aluno {
 			String url = "jdbc:derby:C:\\banco-de-teste;create=true";
 			Connection conn = DriverManager.getConnection(url);
 			// Cria a sentença SQL.
-			String sql = "insert into aluno (matricula, nome, fone, cpf) values (?, ?, ?, ?)";
+			String sql = "insert into ordemDeServico (id, data, solicitante, executante) values (?, ?, ?, ?)";
 			// Obtém referência para uma sentença SQL.
 			PreparedStatement prepareStatement = conn.prepareStatement(sql);
-			prepareStatement.setString(1, matricula);
-			prepareStatement.setString(2, nome);
-			prepareStatement.setString(3, fone);
-			prepareStatement.setString(4, cpf);
+			prepareStatement.setString(1, id);
+			prepareStatement.setString(2, data);
+			prepareStatement.setString(3, solicitante);
+			prepareStatement.setString(4, executante);
 			// Executa a instrução SQL.
 			prepareStatement.executeUpdate();
 			// Fecha a sentença.
@@ -73,19 +73,19 @@ public class Aluno {
 		}
 	}
 
-	public void alterar(String matricula1, String nome1, String fone1, String cpf1) {
+	public void alterar(String id1, String data1, String solicitante1, String executante1) {
 		try {
 			// Obtém a conexão.
 			String url = "jdbc:derby:C:\\banco-de-teste";
 			Connection conn = DriverManager.getConnection(url);
 			// Cria a sentença SQL.
-			String sql = "update aluno set nome=?, fone=?, cpf=? where matricula=?";
+			String sql = "update ordemDeServico set data=?, solicitante=?, executante=? where id=?";
 			// Obtém referência para uma sentença SQL.
 			PreparedStatement prepareStatement = conn.prepareStatement(sql);
-			prepareStatement.setString(4, matricula);
-			prepareStatement.setString(1, nome);
-			prepareStatement.setString(2, fone);
-			prepareStatement.setString(3, cpf);
+			prepareStatement.setString(4, id);
+			prepareStatement.setString(1, data);
+			prepareStatement.setString(2, solicitante);
+			prepareStatement.setString(3, executante);
 			// Executa a instrução SQL.
 			prepareStatement.executeUpdate();
 			// Fecha a sentença.
@@ -98,16 +98,16 @@ public class Aluno {
 		}
 	}
 
-	public void excluir(String matricula1) {
+	public void excluir(String id1) {
 		try {
 			// Obtém a conexão.
 			String url = "jdbc:derby:C:\\banco-de-teste";
 			Connection conn = DriverManager.getConnection(url);
 			// Cria a sentença SQL.
-			String sql = "delete from aluno where matricula=?";
+			String sql = "delete from ordemDeServico where id=?";
 			// Obtém referência para uma sentença SQL.
 			PreparedStatement prepareStatement = conn.prepareStatement(sql);
-			prepareStatement.setString(1, matricula1);
+			prepareStatement.setString(1, id1);
 			// Executa a instrução SQL.
 			prepareStatement.executeUpdate();
 			prepareStatement.close();
@@ -118,28 +118,28 @@ public class Aluno {
 		}
 	}
 	
-	public static List<Aluno> listar() {
-	    List<Aluno> alunos = new ArrayList<Aluno>();
+	public static List<OrdemDeServico> listar() {
+	    List<OrdemDeServico> ordemDeServicos = new ArrayList<OrdemDeServico>();
 	    try {
 	      
 	      //Obtém a conexão.
 	      String url = "jdbc:derby:C:\\banco-de-teste;create=true";
 	      Connection conn = DriverManager.getConnection(url);
 	      //Cria a sentença SQL.
-	      String sql = "select * from aluno order by matricula";
+	      String sql = "select * from ordemDeServico order by id";
 	      //Obtém referência para uma sentença SQL.
 	      PreparedStatement prepareStatement = conn.prepareStatement(sql);
 	      //Executa a instrução SQL.
 	      ResultSet rs = prepareStatement.executeQuery();
 	      while (rs.next()) {
 
-	        Aluno a = new Aluno();
-	        a.setMatricula(rs.getString("matricula"));
-	        a.setNome(rs.getString("nome"));
-	        a.setFone(rs.getString("fone"));
-	        a.setCpf(rs.getString("cpf"));
+	        OrdemDeServico a = new OrdemDeServico();
+	        a.setId(rs.getString("id"));
+	        a.setData(rs.getString("data"));
+	        a.setSolicitante(rs.getString("solicitante"));
+	        a.setExecutante(rs.getString("executante"));
 
-	        alunos.add(a);
+	        ordemDeServicos.add(a);
 	      }
 	      //Fecha o ResultSet.
 	      rs.close();
@@ -152,7 +152,8 @@ public class Aluno {
 	      throw new RuntimeException(e);
 	    }
 
-	    return alunos;
+	    return ordemDeServicos;
 	}
 
 }
+
