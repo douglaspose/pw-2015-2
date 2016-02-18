@@ -62,17 +62,17 @@
 
                         <div class="menu_section">
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-table"></i> Ordem de serviço <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-table"></i> Ordem de servico <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="listar.jsp">Listar</a>
                                         </li>
-                                        <li><a href="cadastrar.jsp">Cadastrar</a>
+                                        <li><a href="cadastrar">Cadastrar</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-user"></i> Pessoas <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="usuario.jsp">Usuário</a>
+                                        <li><a href="usuario.jsp">Usuï¿½rio</a>
                                         </li>
                                         <li><a href="executante.jsp">Executante</a>
                                         </li>
