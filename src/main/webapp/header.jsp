@@ -64,7 +64,7 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-table"></i> Ordem de servico <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="listar.jsp">Listar</a>
+                                        <li><a href="listar">Listar</a>
                                         </li>
                                         <li><a href="cadastrar">Cadastrar</a>
                                         </li>
@@ -72,7 +72,7 @@
                                 </li>
                                 <li><a><i class="fa fa-user"></i> Pessoas <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="usuario.jsp">Usu�rio</a>
+                                        <li><a href="usuario.jsp">Usuario</a>
                                         </li>
                                         <li><a href="executante.jsp">Executante</a>
                                         </li>

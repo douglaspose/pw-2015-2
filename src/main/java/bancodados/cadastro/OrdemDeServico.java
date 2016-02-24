@@ -48,19 +48,30 @@ public class OrdemDeServico {
 		this.executante = executante;
 	}
 
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public void incluir() {
 		try {
 			// Obtém a conexão.
 			String url = "jdbc:derby:C:\\banco-de-teste;create=true";
 			Connection conn = DriverManager.getConnection(url);
 			// Cria a sentença SQL.
-			String sql = "insert into ordemDeServico (id, data, solicitante, executante) values (?, ?, ?, ?)";
+			String sql = "insert into ordemDeServico (id, data, solicitante, executante, status) values (?, ?, ?, ?, ?)";
 			// Obtém referência para uma sentença SQL.
 			PreparedStatement prepareStatement = conn.prepareStatement(sql);
 			prepareStatement.setString(1, id);
 			prepareStatement.setString(2, data);
 			prepareStatement.setString(3, solicitante);
 			prepareStatement.setString(4, executante);
+			prepareStatement.setString(5, status);
 			// Executa a instrução SQL.
 			prepareStatement.executeUpdate();
 			// Fecha a sentença.
@@ -79,13 +90,14 @@ public class OrdemDeServico {
 			String url = "jdbc:derby:C:\\banco-de-teste";
 			Connection conn = DriverManager.getConnection(url);
 			// Cria a sentença SQL.
-			String sql = "update ordemDeServico set data=?, solicitante=?, executante=? where id=?";
+			String sql = "update ordemDeServico set data=?, solicitante=?, executante=?, status=? where id=?";
 			// Obtém referência para uma sentença SQL.
 			PreparedStatement prepareStatement = conn.prepareStatement(sql);
-			prepareStatement.setString(4, id);
+			prepareStatement.setString(5, id);
 			prepareStatement.setString(1, data);
 			prepareStatement.setString(2, solicitante);
 			prepareStatement.setString(3, executante);
+			prepareStatement.setString(4, status);
 			// Executa a instrução SQL.
 			prepareStatement.executeUpdate();
 			// Fecha a sentença.
@@ -117,43 +129,43 @@ public class OrdemDeServico {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public static List<OrdemDeServico> listar() {
-	    List<OrdemDeServico> ordemDeServicos = new ArrayList<OrdemDeServico>();
-	    try {
-	      
-	      //Obtém a conexão.
-	      String url = "jdbc:derby:C:\\banco-de-teste;create=true";
-	      Connection conn = DriverManager.getConnection(url);
-	      //Cria a sentença SQL.
-	      String sql = "select * from ordemDeServico order by id";
-	      //Obtém referência para uma sentença SQL.
-	      PreparedStatement prepareStatement = conn.prepareStatement(sql);
-	      //Executa a instrução SQL.
-	      ResultSet rs = prepareStatement.executeQuery();
-	      while (rs.next()) {
+		List<OrdemDeServico> ordemDeServicos = new ArrayList<OrdemDeServico>();
+		try {
 
-	        OrdemDeServico a = new OrdemDeServico();
-	        a.setId(rs.getString("id"));
-	        a.setData(rs.getString("data"));
-	        a.setSolicitante(rs.getString("solicitante"));
-	        a.setExecutante(rs.getString("executante"));
+			// Obtém a conexão.
+			String url = "jdbc:derby:C:\\banco-de-teste;create=true";
+			Connection conn = DriverManager.getConnection(url);
+			// Cria a sentença SQL.
+			String sql = "select * from ordemDeServico order by id";
+			// Obtém referência para uma sentença SQL.
+			PreparedStatement prepareStatement = conn.prepareStatement(sql);
+			// Executa a instrução SQL.
+			ResultSet rs = prepareStatement.executeQuery();
+			while (rs.next()) {
 
-	        ordemDeServicos.add(a);
-	      }
-	      //Fecha o ResultSet.
-	      rs.close();
-	      //Fecha a sentença.
-	      prepareStatement.close();
-	      //Fecha a conexão.
-	      conn.close();
-	    } catch (Throwable e) {
-	      //Para repassar a exceção para o container tratar.
-	      throw new RuntimeException(e);
-	    }
+				OrdemDeServico a = new OrdemDeServico();
+				a.setId(rs.getString("id"));
+				a.setData(rs.getString("data"));
+				a.setSolicitante(rs.getString("solicitante"));
+				a.setExecutante(rs.getString("executante"));
+				a.setStatus(rs.getString("status"));
 
-	    return ordemDeServicos;
+				ordemDeServicos.add(a);
+			}
+			// Fecha o ResultSet.
+			rs.close();
+			// Fecha a sentença.
+			prepareStatement.close();
+			// Fecha a conexão.
+			conn.close();
+		} catch (Throwable e) {
+			// Para repassar a exceção para o container tratar.
+			throw new RuntimeException(e);
+		}
+
+		return ordemDeServicos;
 	}
 
 }
-
