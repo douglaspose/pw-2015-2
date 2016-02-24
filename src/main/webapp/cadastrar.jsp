@@ -1,4 +1,4 @@
-<%@ include file="/header.jsp" %>
+<%@ include file="/header.jsp"%>
 <%@page import="bancodados.cadastro.OrdemDeServico"%>
 <%@page import="java.util.List"%>
 <link href="_css/estilo.css" rel="stylesheet">
@@ -35,9 +35,13 @@
                   <input class="form-control" placeholder="Executante" name="executante"
                     type="text" value="${param.executante}">
                 </div>
-                <input type="submit" class="btn btn-sm btn-success" name="evento" value="Incluir">
-				<input type="submit" class="btn btn-sm btn-success" name="evento" value="Alterar"> 
-				<input type="submit" class="btn btn-sm btn-success" name="evento" value="Excluir">
+                <div class="form-group">
+                  <input class="form-control" placeholder="Status" name="status"
+                    type="text" value="${param.status}">
+                </div>
+                <input type="submit" class="btn btn-sm btn-success" name="evento" value="Incluir" title='Incluir nova ordem de servico'>
+				<input type="submit" class="btn btn-sm btn-success" name="evento" value="Alterar" title='Para alterar informe o id'> 
+				<input type="submit" class="btn btn-sm btn-success" name="evento" value="Excluir" title=''>
 				<input type="button" class="btn btn-sm btn-success" onclick="location.href='?'" value="Limpar">
                        
 
@@ -49,16 +53,12 @@
             	
             		%>
                     
-                    
-                    
-                    
                 </div>
 
                 <div class="clearfix"></div>
             </div>
         </div>
-
     </div>
-    <br />
+  <br />
 
-    <%@ include file="/footer.jsp" %>
+ <%@ include file="/footer.jsp"%>

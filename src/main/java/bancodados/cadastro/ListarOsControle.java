@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/cadastrar")
-public class CadastroOsControle extends HttpServlet {
+@WebServlet(value = "/listar")
+public class ListarOsControle extends HttpServlet {
 
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -28,29 +28,12 @@ public class CadastroOsControle extends HttpServlet {
 		String paramStatus = req.getParameter("status");
 		String status = paramStatus == null ? "" : paramStatus;
 
-		String paramEvento = req.getParameter("evento");
-		String evento = paramEvento == null ? "" : paramEvento;
-
 		OrdemDeServico ordemDeServico = new OrdemDeServico();
 		ordemDeServico.setId(id);
 		ordemDeServico.setData(data);
 		ordemDeServico.setSolicitante(solicitante);
 		ordemDeServico.setExecutante(executante);
 		ordemDeServico.setStatus(status);
-
-		if (evento.equals("Incluir")) {
-			if (!id.equals("")) {
-				ordemDeServico.incluir();
-			}
-		} else if (evento.equals("Alterar")) {
-			if (!id.equals("")) {
-				ordemDeServico.alterar(id, data, solicitante, executante);
-			}
-		} else if (evento.equals("Excluir")) {
-			if (!id.equals("")) {
-				ordemDeServico.excluir(id);
-			}
-		}
 
 		req.setAttribute("ordemDeServico", ordemDeServico); // Passando um
 															// objeto para o
@@ -60,11 +43,10 @@ public class CadastroOsControle extends HttpServlet {
 		req.setAttribute("ordemDeServicos", ordemDeServicos); // Passando uma
 																// coleção para
 																// o
-		// JSP.
+																// JSP.
 
 		// Chamar o JSP apenas para mostrar o resultado.
-		req.getRequestDispatcher("cadastrar.jsp").forward(req, resp);
-		// req.getRequestDispatcher("listar.jsp").forward(req, resp);
+		req.getRequestDispatcher("listar.jsp").forward(req, resp);
 	}
 
 }
