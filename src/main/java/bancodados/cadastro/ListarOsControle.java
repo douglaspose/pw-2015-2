@@ -27,6 +27,9 @@ public class ListarOsControle extends HttpServlet {
 
 		String paramStatus = req.getParameter("status");
 		String status = paramStatus == null ? "" : paramStatus;
+		
+		String paramEvento = req.getParameter("evento");
+		String evento = paramEvento == null ? "" : paramEvento;
 
 		OrdemDeServico ordemDeServico = new OrdemDeServico();
 		ordemDeServico.setId(id);
@@ -34,7 +37,21 @@ public class ListarOsControle extends HttpServlet {
 		ordemDeServico.setSolicitante(solicitante);
 		ordemDeServico.setExecutante(executante);
 		ordemDeServico.setStatus(status);
-
+		
+		if (evento.equals("Incluir")) {
+			if (!id.equals("")) {
+				ordemDeServico.incluir();
+			}
+		} else if (evento.equals("Alterar")) {
+			if (!id.equals("")) {
+				ordemDeServico.alterar(id, data, solicitante, executante);
+			}
+		} else if (evento.equals("Excluir")) {
+			if (!id.equals("")) {
+				ordemDeServico.excluir(id);
+			}
+		}
+		
 		req.setAttribute("ordemDeServico", ordemDeServico); // Passando um
 															// objeto para o
 															// JSP.

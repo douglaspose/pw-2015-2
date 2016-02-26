@@ -44,9 +44,9 @@
 			<td><%=a.getExecutante()%></td>
 			<td><%=a.getStatus()%></td>
 
-			<td><a href="CadastroOrdemDeServico?id=<%=a.getId()%>&data=<%=a.getData()%>&solicitante=<%=a.getSolicitante()%>&executante=<%=a.getExecutante()%>&evento=Alterar">Alterar</a></td>
+			<td><a href="cadastrar?id=<%=a.getId()%>&data=<%=a.getData()%>&solicitante=<%=a.getSolicitante()%>&executante=<%=a.getExecutante()%>&status=<%=a.getStatus()%>&evento=Alterar">Alterar</a></td>
 			
-			<td><a href="CadastroOrdemDeServico?id=<%=a.getId()%>&data=&solicitante=&executante=&evento=Excluir">Excluir</a></td>
+			<td><a href="listar?id=<%=a.getId()%>&data=&solicitante=&executante=&evento=Excluir">Excluir</a></td>
 			</tr>
 			<%
 				}
